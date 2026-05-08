@@ -1,4 +1,5 @@
 import pickle
+from PyQt5.QtWidgets import QMessageBox
 
 class users:
     
@@ -14,6 +15,14 @@ class users:
     #make new password
     def new_password(self,name:str,password:str):
         if name in self.passwords.keys():
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Critical)
+            msgBox.setText(f"THE NAME {name} ALREADY EXISTS")
+            msgBox.setWindowTitle("ERROR")
+            msgBox.setStandardButtons(QMessageBox.Ok)
+
+            returnValue = msgBox.exec()
+
             print("this name already exists for a password")
             # show a error popup critcal messagebox
         else:
@@ -21,30 +30,48 @@ class users:
 
     def edit_password(self,name:str,new_password:str):
 
-        # no saved passwords
         if self.passwords.keys()==[]:
-            # show a error popup critcal messagebox
-            pass
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setText(f"NO SAVED PASSWORDS")
+            msgBox.setWindowTitle("ERROR")
+            msgBox.setStandardButtons(QMessageBox.Ok)
+
+            returnValue = msgBox.exec()
 
         for key in self.passwords.keys():
             if key==name:
                 self.passwords[key]=new_password
                 return
-        # incorrect name 
-        # show a error popup critcal messagebox
-        print("incorrect name")
+            
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Critical)
+        msgBox.setText(f"INCORRECT NAME")
+        msgBox.setWindowTitle("ERROR")
+        msgBox.setStandardButtons(QMessageBox.Ok)
+        returnValue = msgBox.exec()
 
     def remove_password(self,name:str):
+            
         if name in self.passwords.keys():
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setText(f"ARE YOU SURE YOU WANT TO REMOVE PASSWORD FOR {name}?")
+            msgBox.setWindowTitle("WARNING")
+            msgBox.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
 
-            # info message box asging are you sure if yes remove teh password 
-
-            #if pressed no do nothing
-            self.passwords.pop(name)
+            returnValue = msgBox.exec()
+            if returnValue == QMessageBox.Ok:
+                self.passwords.pop(name)
+            
         else:
-            #incorrect name
-            # show a error popup critcal messagebox
-            print("this name doesnt exists")
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Critical)
+            msgBox.setText(f"THE NAME {name} DOES NOT EXIST")
+            msgBox.setWindowTitle("ERROR")
+            msgBox.setStandardButtons(QMessageBox.Ok)
+
+            returnValue = msgBox.exec()
     
     def show_all(self):
         print()

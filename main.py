@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 from user_class import users
 import pickle
 
@@ -181,6 +182,16 @@ class main_window(object):
     def new_password(self):
         name=self.lineEdit_10.text()
         password=self.lineEdit_11.text()
+
+        if name.strip()=="" or password.strip()=="":
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setText(f"these fields cannot be empty")
+            msgBox.setWindowTitle("ERROR")
+            msgBox.setStandardButtons(QMessageBox.Ok)
+            returnValue = msgBox.exec()
+            
+            return
         self.current_user.new_password(name,password)
 
         with open("user_data.txt","rb") as f:
@@ -193,12 +204,23 @@ class main_window(object):
                 pickle.dump(user_data_list,fw)
                 fw.close()
             f.close()
+        self.lineEdit_10.setText("")
+        self.lineEdit_11.setText("")
 
     def edit_password(self):
         name_to_edit=self.lineEdit_9.text()
         name=self.lineEdit_7.text()
         new_password=self.lineEdit_8.text()
 
+        if name_to_edit.strip()=="" or new_password.strip()=="":
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setText(f"these fields cannot be empty")
+            msgBox.setWindowTitle("ERROR")
+            msgBox.setStandardButtons(QMessageBox.Ok)
+            returnValue = msgBox.exec()
+
+            return
         self.current_user.edit_password(name_to_edit,new_password)
 
         with open("user_data.txt","rb") as f:
@@ -212,8 +234,22 @@ class main_window(object):
                 fw.close()
             f.close()
 
+        self.lineEdit_9.setText("")
+        self.lineEdit_7.setText("")
+        self.lineEdit_8.setText("")
+
     def remove_password(self):
         name_to_remove=self.lineEdit_16.text()
+
+        if name_to_remove.strip()=="":
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Critical)
+            msgBox.setText(f"this field cannot be empty")
+            msgBox.setWindowTitle("ERROR")
+            msgBox.setStandardButtons(QMessageBox.Ok)
+            returnValue = msgBox.exec()
+            
+            return
         self.current_user.remove_password(name_to_remove)
 
         with open("user_data.txt","rb") as f:
@@ -226,6 +262,7 @@ class main_window(object):
                 pickle.dump(user_data_list,fw)
                 fw.close()
             f.close()
+        self.lineEdit_16.setText("")
 
     def show_passwords(self):
         passwords=self.current_user.show_all()

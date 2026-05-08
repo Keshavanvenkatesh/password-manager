@@ -80,6 +80,14 @@ class Ui_Dialog(object):
         username=self.lineEdit.text()
         password=self.lineEdit_2.text()
         if self.checkBox.isChecked():       # new user
+            if len(password)<6 or len(username)<6:
+                msgBox = QMessageBox()
+                msgBox.setIcon(QMessageBox.Information)
+                msgBox.setText(f"USERNAME AND PASSWORD SHOULD HAVE 6 CHARACTERS ATLEAST")
+                msgBox.setWindowTitle("ERROR")
+                msgBox.setStandardButtons(QMessageBox.Ok)
+                returnValue = msgBox.exec()
+                return
             
             with open("user_data.txt","rb") as fr:
 
@@ -96,6 +104,8 @@ class Ui_Dialog(object):
                     pickle.dump(user_data_list,fw)
                     fw.close()
                 fr.close()
+            self.lineEdit.setText("")
+            self.lineEdit_2.setText("")
 
         else:           # login
             with open("user_data.txt",'rb') as f:
@@ -108,6 +118,9 @@ class Ui_Dialog(object):
                         self.ui = main_window(user) 
                         self.ui.setupUi(self.window) 
                         self.window.show()
+
+                        self.lineEdit.setText("")
+                        self.lineEdit_2.setText("")
                         return
                     
                 msg = QMessageBox()
