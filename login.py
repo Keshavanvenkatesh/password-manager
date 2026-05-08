@@ -9,8 +9,10 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 import pickle
 from user_class import users
+from main import main_window
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -96,10 +98,19 @@ class Ui_Dialog(object):
                     if user.username==username and user.password==password:
                         print("logged in")
                         # open main window
+                        self.window = QtWidgets.QDialog() 
+                        self.ui = main_window(user) 
+                        self.ui.setupUi(self.window) 
+                        self.window.show()
                         return
-                
-                #open message box saying incorrect username or password
-                print("incorrect password or username")
+                    
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Critical)
+                msg.setText("Invalid Login Credentials")
+                msg.setInformativeText("Please check your username or password and try again.")
+                msg.setWindowTitle("Login Failed")
+
+                result = msg.exec_()
                 f.close()
                 return
         print(username,password)

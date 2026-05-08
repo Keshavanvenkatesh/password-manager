@@ -9,9 +9,15 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from user_class import users
+import pickle
 
 
-class Ui_Dialog(object):
+class main_window(object):
+
+    def __init__(self,user:users):
+        self.current_user=user
+
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(826, 435)
@@ -54,8 +60,13 @@ class Ui_Dialog(object):
         self.lineEdit_11.setObjectName("lineEdit_11")
         self.horizontalLayout_11.addWidget(self.lineEdit_11)
         self.verticalLayout_2.addLayout(self.horizontalLayout_11)
+
+        # =========================== NEW PASSWORD ============================================
+
         self.pushButton_4 = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.pushButton_4.setObjectName("pushButton_4")
+        self.pushButton_4.clicked.connect(self.new_password)
+
         self.verticalLayout_2.addWidget(self.pushButton_4)
         self.verticalLayout.addLayout(self.verticalLayout_2)
         self.verticalLayout_3 = QtWidgets.QVBoxLayout()
@@ -154,12 +165,34 @@ class Ui_Dialog(object):
         self.label_22.setText(_translate("Dialog", " NAME       "))
         self.pushButton_6.setText(_translate("Dialog", "REMOVE"))
         self.pushButton.setText(_translate("Dialog", "SHOW ALL PASSWORDS"))
+    
+    def new_password(self):
+        name=self.lineEdit_10.text()
+        password=self.lineEdit_11.text()
+        self.current_user.new_password(name,password)
+
+        with open("user_data.txt","rb") as f:
+            user_data_list=pickle.load(f)
+            for i,user in enumerate(user_data_list):
+                if user.username==self.current_user.username and user.password==self.current_user.password:
+                    user_data_list[i]=self.current_user
+
+            with open("user_data.txt",'wb') as fw:
+                pickle.dump(user_data_list,fw)
+                fw.close()
+            f.close()
+
+    def edit_password(self):
+        pass
+
+    def remove_password(self):
+        pass
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
+    ui = main_window()
     ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec_())
