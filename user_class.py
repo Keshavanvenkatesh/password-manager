@@ -54,18 +54,3 @@ class users:
             passwords+=f"{key}\n \t password: {self.passwords[key]}\n"
             print(f"{key},password: {self.passwords[key]}")
         return passwords
-
-# keshavan=users("eightnormal","a")
-# yashashwini=users("akshaya","b")
-
-# print(users.users)
-
-# print(keshavan.login("eightnormal","b"))
-# keshavan.new_password("email","print")
-# keshavan.show_password("email")
-# keshavan.edit_password("email","pp")
-# keshavan.show_password("email")
-# keshavan.new_password("email2","print1")
-
-# keshavan.remove_password("email3")
-# keshavan.show_all()
