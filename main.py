@@ -106,9 +106,13 @@ class main_window(object):
         self.lineEdit_8.setObjectName("lineEdit_8")
         self.horizontalLayout_8.addWidget(self.lineEdit_8)
         self.verticalLayout_3.addLayout(self.horizontalLayout_8)
+
+        # edit password ============================================================
         self.pushButton_3 = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.pushButton_3.setObjectName("pushButton_3")
         self.verticalLayout_3.addWidget(self.pushButton_3)
+        self.pushButton_3.clicked.connect(self.edit_password)
+
         self.verticalLayout.addLayout(self.verticalLayout_3)
         self.verticalLayout_5 = QtWidgets.QVBoxLayout()
         self.verticalLayout_5.setObjectName("verticalLayout_5")
@@ -159,7 +163,7 @@ class main_window(object):
         self.label_10.setText(_translate("Dialog", "EDIT"))
         self.label_12.setText(_translate("Dialog", "NAME TO EDIT"))
         self.label_9.setText(_translate("Dialog", "PASSWORD    "))
-        self.label_11.setText(_translate("Dialog", "NEW NAME    "))
+        self.label_11.setText(_translate("Dialog", "NEW PASSWORD  "))
         self.pushButton_3.setText(_translate("Dialog", "EDIT"))
         self.label_20.setText(_translate("Dialog", "REMOVE PASSWORD"))
         self.label_22.setText(_translate("Dialog", " NAME       "))
@@ -183,7 +187,22 @@ class main_window(object):
             f.close()
 
     def edit_password(self):
-        pass
+        name_to_edit=self.lineEdit_9.text()
+        name=self.lineEdit_7.text()
+        new_password=self.lineEdit_8.text()
+
+        self.current_user.edit_password(name_to_edit,new_password)
+
+        with open("user_data.txt","rb") as f:
+            user_data_list=pickle.load(f)
+            for i,user in enumerate(user_data_list):
+                if user.username==self.current_user.username and user.password==self.current_user.password:
+                    user_data_list[i]=self.current_user
+
+            with open("user_data.txt",'wb') as fw:
+                pickle.dump(user_data_list,fw)
+                fw.close()
+            f.close()
 
     def remove_password(self):
         pass

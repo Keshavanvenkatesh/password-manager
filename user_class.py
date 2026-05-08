@@ -10,19 +10,12 @@ class users:
         self.password=password
 
         self.passwords={}
-        users.users[username]=password
-    
-    def login(self,username,password):
-        for key in users.users.keys():
-            if key==username and users.users[key]==password:
-                return True
-            else:
-                return False
-
+        
     #make new password
     def new_password(self,name:str,password:str):
         if name in self.passwords.keys():
             print("this name already exists for a password")
+            # show a error popup critcal messagebox
         else:
             self.passwords[name]=password
 
@@ -31,12 +24,14 @@ class users:
             if key==name:
                 self.passwords[key]=new_password
                 return
+        # show a error popup critcal messagebox
         print("incorrect name")
 
     def remove_password(self,name:str):
         if name in self.passwords.keys():
             self.passwords.pop(name)
         else:
+            # show a error popup critcal messagebox
             print("this name doesnt exists")
     
     def show_all(self):

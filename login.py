@@ -84,6 +84,12 @@ class Ui_Dialog(object):
             with open("user_data.txt","rb") as fr:
 
                 user_data_list=pickle.load(fr)
+                for user in user_data_list:
+                    if user.username==username:
+                        # critical messagebox 
+                        print("this username already exits")
+                        return
+                    
                 user_data_list.append(users(username,password))
 
                 with open("user_data.txt",'wb') as fw:
@@ -113,7 +119,6 @@ class Ui_Dialog(object):
                 result = msg.exec_()
                 f.close()
                 return
-        print(username,password)
 
     def forgot_password_button(self):
         pass
