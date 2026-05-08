@@ -1,6 +1,2 @@
-msgBox = QMessageBox()
-msgBox.setIcon(QMessageBox.Information)
-msgBox.setText("Message box pop up window")
-msgBox.setWindowTitle("QMessageBox Example")
-msgBox.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
-msgBox.buttonClicked.connect(msgButtonClick)
+PyQt5==5.15.11
+pyqt5-tools
