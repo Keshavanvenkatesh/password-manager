@@ -206,12 +206,3 @@ class main_window(object):
 
     def remove_password(self):
         pass
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Dialog = QtWidgets.QDialog()
-    ui = main_window()
-    ui.setupUi(Dialog)
-    Dialog.show()
-    sys.exit(app.exec_())
