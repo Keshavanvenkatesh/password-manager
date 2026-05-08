@@ -133,13 +133,21 @@ class main_window(object):
         self.lineEdit_16.setObjectName("lineEdit_16")
         self.horizontalLayout_16.addWidget(self.lineEdit_16)
         self.verticalLayout_5.addLayout(self.horizontalLayout_16)
+
+        # remove password -------------------------------------------------------------------------------------
         self.pushButton_6 = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.pushButton_6.setObjectName("pushButton_6")
+        self.pushButton_6.clicked.connect(self.remove_password)
+
         self.verticalLayout_5.addWidget(self.pushButton_6)
         self.verticalLayout.addLayout(self.verticalLayout_5)
+
+        # show passwords =========================================================
         self.pushButton = QtWidgets.QPushButton(Dialog)
         self.pushButton.setGeometry(QtCore.QRect(170, 400, 161, 26))
         self.pushButton.setObjectName("pushButton")
+        self.pushButton.clicked.connect(self.show_passwords)
+
         self.verticalLayoutWidget_5 = QtWidgets.QWidget(Dialog)
         self.verticalLayoutWidget_5.setGeometry(QtCore.QRect(339, 9, 481, 381))
         self.verticalLayoutWidget_5.setObjectName("verticalLayoutWidget_5")
@@ -205,4 +213,23 @@ class main_window(object):
             f.close()
 
     def remove_password(self):
-        pass
+        name_to_remove=self.lineEdit_16.text()
+        self.current_user.remove_password(name_to_remove)
+
+        with open("user_data.txt","rb") as f:
+            user_data_list=pickle.load(f)
+            for i,user in enumerate(user_data_list):
+                if user.username==self.current_user.username and user.password==self.current_user.password:
+                    user_data_list[i]=self.current_user
+
+            with open("user_data.txt",'wb') as fw:
+                pickle.dump(user_data_list,fw)
+                fw.close()
+            f.close()
+
+    def show_passwords(self):
+        passwords=self.current_user.show_all()
+        if passwords=="":
+            self.textEdit.setPlainText("NO PASSWORDS SAVED")
+        else:
+            self.textEdit.setPlainText(passwords)
