@@ -1,4 +1,3 @@
-import pickle
 from PyQt5.QtWidgets import QMessageBox
 
 class users:

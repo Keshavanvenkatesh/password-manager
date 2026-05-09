@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>826</width>
-    <height>435</height>
+    <height>437</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -54,7 +54,7 @@
         <item>
          <widget class="QLabel" name="label_14">
           <property name="text">
-           <string> NAME       </string>
+           <string> NAME        </string>
           </property>
          </widget>
         </item>
@@ -107,7 +107,7 @@
         <item>
          <widget class="QLabel" name="label_12">
           <property name="text">
-           <string>NAME TO EDIT</string>
+           <string>NAME TO EDIT    </string>
           </property>
          </widget>
         </item>
@@ -117,25 +117,11 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_7">
-        <item>
-         <widget class="QLabel" name="label_9">
-          <property name="text">
-           <string>PASSWORD    </string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_7"/>
-        </item>
-       </layout>
-      </item>
-      <item>
        <layout class="QHBoxLayout" name="horizontalLayout_8">
         <item>
          <widget class="QLabel" name="label_11">
           <property name="text">
-           <string>NEW NAME    </string>
+           <string>NEW PASSWORD</string>
           </property>
          </widget>
         </item>
@@ -219,6 +205,39 @@
    <layout class="QVBoxLayout" name="verticalLayout_6">
     <item>
      <widget class="QTextEdit" name="textEdit"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>400</y>
+     <width>295</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="text">
+       <string>customise</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="text">
+       <string>clear</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_7">
+      <property name="text">
+       <string>HELP</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
