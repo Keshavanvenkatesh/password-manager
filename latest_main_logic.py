@@ -6,6 +6,7 @@ from help_logic import HelpUI
 from PyQt5.QtWidgets import QMessageBox
 from user_class import users
 import pickle
+from user_guide import guideUI
 
 
 class MainUI(QMainWindow):
@@ -23,6 +24,7 @@ class MainUI(QMainWindow):
 
         self.pushButton_2.clicked.connect(self.clear_screen)
         self.actionhelp_page.triggered.connect(self.help)
+        self.actionguide.triggered.connect(self.user_guide)
         
     def new_password(self):
         name=self.lineEdit_10.text()
@@ -120,6 +122,10 @@ class MainUI(QMainWindow):
     def help(self):
         self.help_window=HelpUI()
         self.help_window.show()
+        
+    def user_guide(self):
+        self.user_guide_window=guideUI()
+        self.user_guide_window.show()
     
 if __name__ == "__main__":
     app = QApplication(sys.argv)
