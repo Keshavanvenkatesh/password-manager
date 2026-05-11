@@ -1,20 +1,18 @@
-from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QApplication, QDialog
+from PyQt5.QtWidgets import QApplication, QDialog,QMainWindow
 from PyQt5.uic import loadUi
 import sys
 from user_class import users
-
-from PyQt5 import QtCore, QtGui, QtWidgets
+from help_logic import HelpUI
 from PyQt5.QtWidgets import QMessageBox
 from user_class import users
 import pickle
 
 
-class MainUI(QDialog):
+class MainUI(QMainWindow):
 
     def __init__(self,user:users):
         super(MainUI, self).__init__()
-        loadUi("latest_main_ui.ui", self)
+        loadUi("latest_main_ui_2.ui", self)
         self.current_user=user
 
         self.pushButton_4.clicked.connect(self.new_password)
@@ -24,6 +22,7 @@ class MainUI(QDialog):
         self.pushButton.clicked.connect(self.show_passwords)
 
         self.pushButton_2.clicked.connect(self.clear_screen)
+        self.actionhelp_page.triggered.connect(self.help)
         
     def new_password(self):
         name=self.lineEdit_10.text()
@@ -117,6 +116,10 @@ class MainUI(QDialog):
     
     def clear_screen(self):
         self.textEdit.setText("")
+
+    def help(self):
+        self.help_window=HelpUI()
+        self.help_window.show()
     
 if __name__ == "__main__":
     app = QApplication(sys.argv)

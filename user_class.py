@@ -11,6 +11,9 @@ class users:
 
         self.passwords={}
         
+    def set_email(self,email:str):
+        self.email=email
+        
     #make new password
     def new_password(self,name:str,password:str):
         if name in self.passwords.keys():
