@@ -122,7 +122,7 @@ class MainUI(QMainWindow):
     def help(self):
         self.help_window=HelpUI()
         self.help_window.show()
-        
+
     def user_guide(self):
         self.user_guide_window=guideUI()
         self.user_guide_window.show()
