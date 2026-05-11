@@ -1,0 +1,128 @@
+PASSWORD MANAGER - USER GUIDE
+
+--------------------------------------------------
+1. LOGIN / SIGN UP
+--------------------------------------------------
+
+Existing Users:
+- Enter your username and password.
+- Click ENTER to log in.
+
+New Users:
+- Check the "NEW USER" checkbox.
+- Enter a new username and password.
+- Click ENTER to create an account.
+
+NOTE:
+- Username and password must contain at least 6 characters.
+
+
+--------------------------------------------------
+2. ADD NEW PASSWORD
+--------------------------------------------------
+
+To save a new password:
+
+1. Enter the name of the account/service.
+   Example:
+   - Gmail
+   - Instagram
+   - Bank
+
+2. Enter the password.
+
+3. Click CREATE.
+
+The password will be stored under your account.
+
+
+--------------------------------------------------
+3. EDIT SAVED PASSWORD
+--------------------------------------------------
+
+To edit an existing password:
+
+1. Enter the name of the saved entry.
+2. Enter the new password.
+3. Click EDIT.
+
+The selected password will be updated.
+
+
+--------------------------------------------------
+4. REMOVE PASSWORD
+--------------------------------------------------
+
+To remove a saved password:
+
+1. Enter the name of the password entry.
+2. Click REMOVE.
+
+The password entry will be deleted permanently.
+
+
+--------------------------------------------------
+5. SHOW ALL PASSWORDS
+--------------------------------------------------
+
+Click:
+SHOW ALL PASSWORDS
+
+to display all saved password entries for the current user.
+
+
+--------------------------------------------------
+6. CLEAR SCREEN
+--------------------------------------------------
+
+Click:
+CLEAR SCREEN
+
+to clear the password display area.
+
+
+--------------------------------------------------
+7. HELP & SUPPORT
+--------------------------------------------------
+
+Use the HELP menu if you:
+- find a bug
+- encounter an error
+- need assistance
+
+You can send:
+- error details
+- complaints
+- suggestions
+- feedback
+
+
+--------------------------------------------------
+8. IMPORTANT SECURITY NOTES
+--------------------------------------------------
+
+- Never share your master password.
+- Always use strong passwords.
+- Do not store sensitive passwords on shared computers.
+- Remember to keep backups of important data.
+
+
+--------------------------------------------------
+9. APPLICATION FEATURES
+--------------------------------------------------
+
+Current Features:
+- Multi-user login system
+- Password storage
+- Edit and remove passwords
+- Help & support page
+- Persistent local storage
+- GUI interface built using PyQt5
+
+
+--------------------------------------------------
+10. DEVELOPER
+--------------------------------------------------
+
+Developed by:
+Keshavan Venkatesh

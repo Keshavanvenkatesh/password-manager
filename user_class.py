@@ -1,4 +1,3 @@
-import pickle
 from PyQt5.QtWidgets import QMessageBox
 
 class users:
@@ -11,6 +10,9 @@ class users:
         self.password=password
 
         self.passwords={}
+        
+    def set_email(self,email:str):
+        self.email=email
         
     #make new password
     def new_password(self,name:str,password:str):
