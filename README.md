@@ -1,14 +1,163 @@
-# password-manager
-a desktop application to manage your passwords 
+# Password Manager
 
-# login page
-<img width="407" height="172" alt="image" src="https://github.com/user-attachments/assets/911be7f1-76e5-4baf-a7fc-f139f4d28b45" />
+A desktop password manager built using PyQt5 with support for multiple users, password storage, editing, deletion, help/support reporting, and a built-in user guide.
 
-# main page
-<img width="822" height="468" alt="image" src="https://github.com/user-attachments/assets/adb98e02-5591-46c1-b472-4d782814ccf6" />
+---
 
-# creating new password
-<img width="822" height="470" alt="image" src="https://github.com/user-attachments/assets/fa7b319a-a01c-427c-8272-4dbd82604be6" />
+# Features
 
-# show all passwords
-<img width="817" height="467" alt="image" src="https://github.com/user-attachments/assets/51be0c3f-a589-4096-b39a-340299f1c095" />
+- Multi-user login and signup system
+- Store passwords securely per user
+- Edit saved passwords
+- Remove passwords
+- Show all saved passwords
+- GUI built with PyQt5
+- Built-in help/support system
+- Built-in user guide window
+- Modular project structure
+- Persistent local data storage
+
+---
+
+# Screenshots
+
+## Login Window
+
+<img width="393" height="170" alt="image" src="https://github.com/user-attachments/assets/3dafdb12-dc51-403f-84d9-e1ac8c9c1816" />
+
+---
+
+## Main Dashboard
+
+<img width="822" height="520" alt="image" src="https://github.com/user-attachments/assets/ed881a9d-1e96-4b09-bb8e-b7d26caabf66" />
+
+---
+
+## Help & Support Window
+
+<img width="443" height="271" alt="image" src="https://github.com/user-attachments/assets/ba96c8d5-b454-45f3-a6bb-e5c2a1cdbe1a" />
+
+
+---
+
+## User Guide Window
+
+<img width="630" height="372" alt="image" src="https://github.com/user-attachments/assets/d9602028-5f54-4eac-a8d2-131e792c1b38" />
+
+---
+
+# Project Structure
+
+```text
+password_manager/
+│
+├── data/
+│   ├── user_data.txt
+│   └── user_guide.txt
+│
+├── logic/
+│   ├── login_logic.py
+│   ├── latest_main_logic.py
+│   ├── help_logic.py
+│   └── user_guide.py
+│
+├── models/
+│   └── user_class.py
+│
+├── ui/
+│   ├── login_ui.ui
+│   ├── latest_main_ui_2.ui
+│   ├── help_page.ui
+│   └── user_guide.ui
+│
+├── main.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+# Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Keshavanvenkatesh/password-manager.git
+```
+
+Move into the project folder:
+
+```bash
+cd password-manager
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the application:
+
+```bash
+python main.py
+```
+
+---
+
+# Technologies Used
+
+- Python
+- PyQt5
+- Pickle
+- pathlib
+- Git & GitHub
+
+---
+
+# Support System
+
+The application includes a built-in support page where users can:
+
+- Report issues
+- Send complaints
+- Provide feedback
+
+The app automatically includes:
+
+- OS information
+- Python version
+- Platform details
+
+inside support reports.
+
+---
+
+# Future Improvements
+
+Planned future upgrades:
+
+- Password encryption
+- SQLite database integration
+- Password generator
+- Search functionality
+- Dark mode
+- Export/import support
+- Cloud synchronization
+- Better security architecture
+
+---
+
+# Security Note
+
+This project is currently intended for educational and learning purposes.
+
+Sensitive data is currently stored locally using pickle serialization and is not yet encrypted.
+
+---
+
+# Developer
+
+Developed by:
+
+Keshavan Venkatesh
