@@ -255,11 +255,13 @@
     <property name="title">
      <string>how to use</string>
     </property>
+    <addaction name="actionguide"/>
    </widget>
    <widget class="QMenu" name="menuforgot_password">
     <property name="title">
      <string>add email</string>
     </property>
+    <addaction name="actionadd_email"/>
    </widget>
    <addaction name="menuSETTINGS"/>
    <addaction name="menuHELP"/>
@@ -274,6 +276,16 @@
   <action name="actionhelp_page">
    <property name="text">
     <string>help page</string>
+   </property>
+  </action>
+  <action name="actionguide">
+   <property name="text">
+    <string>guide</string>
+   </property>
+  </action>
+  <action name="actionadd_email">
+   <property name="text">
+    <string>add email</string>
    </property>
   </action>
  </widget>
