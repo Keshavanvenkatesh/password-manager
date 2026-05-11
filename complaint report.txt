@@ -1,7 +1,0 @@
-
-OS: Windows
-Platform: Windows-11-10.0.26200-SP0
-Python: 3.14.3
-Architecture: AMD64
-Email: keshavanvenaktesh7@gmail.com
-Complaint: the app is fucking lsow

@@ -1,4 +1,11 @@
 __pycache__/
 *.pyc
+
 venv/
-user_data.txt
+
+data/user_data.txt
+data/complaint_report.txt
+tester.py
+
+logs/
+*.log
